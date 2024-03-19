@@ -1,0 +1,256 @@
+import java.util.Scanner;
+import java.util.Random;
+public class Shiur2 {
+    public static void f1(int[] arr, int index) {
+        if ((index >= 0) && (index < arr.length)) {
+            if (arr[index] % 2 != 0) {
+                arr[index] = arr[index] + 1;
+            }
+        } else {
+            System.out.println("Error!");
+        }
+    }
+
+    public static void f2(int[] arr1) {
+        int memoza = 0;
+        for (int index = 0; index < arr1.length; index++)
+            memoza = memoza + arr1[index];
+        System.out.println(memoza / arr1.length);
+    }
+
+    public static void f3(int[] arr2) {
+        int min = 100;
+        for (int index = 0; index < arr2.length; index++)
+            if (min > arr2[index])
+                min = arr2[index];
+        System.out.println(min);
+    }
+
+    public static void f4(int[] arr3) {
+        for (int index = 0; index < arr3.length - 1; index++) {
+            int sum = arr3[index] + arr3[index + 1];
+            if (sum % 2 != 0) {
+                System.out.println(index + "," + (index + 1));
+            }
+        }
+    }
+
+    public static boolean f5(int num) {
+        int[] arr4 = new int[10];
+        Random r = new Random();
+        for (int index = 0; index < arr4.length; index++) {
+            int x = r.nextInt(101);
+            arr4[index] = x;
+        }
+        for (int i = 0; i < arr4.length; i++) {
+            if (arr4[i] == num) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static void f6() {
+        int[] arr5 = new int[10];
+        Random r = new Random();
+        for (int index = 0; index < arr5.length; index++) {
+            int x = r.nextInt(101);
+            arr5[index] = x;
+            System.out.print(arr5[index] + " ");
+        }
+
+	    for (int i = 0; i < arr5.length - 1; i++) {
+	         int sum = arr5[i] + arr5[i + 1];
+	         if (sum % 2 == 0) {
+	            System.out.println(i + "," + (i + 1));
+            }
+        }
+    }
+    public static void f7() {
+        int max = 0; 
+        int count=0;
+        int[] arr6 = new int[10];
+        Random r = new Random();
+        for (int index = 0; index < arr6.length; index++) {
+            int x = r.nextInt(101);
+            arr6[index] = x;
+            if (max < arr6[index]) {
+            	max=x;
+            	count=index;
+            }
+        arr6[count]=arr6[9];
+        arr6[9]=max;
+        }
+        for (int i = 0; i < arr6.length; i++) {
+            System.out.print(arr6[i] + " ");
+        }
+        System.out.println(); 
+    }
+    
+    public static int f8(int[] arr7) {
+    	    for (int i = 0; i < arr7.length; i++) {
+    	        int leftSum = 0;
+    	        int rightSum = 0;
+
+    	        for (int j = 0; j < i; j++) {
+    	            leftSum += arr7[j];
+    	        }
+    	        for (int j = i + 1; j < arr7.length; j++) {
+    	            rightSum += arr7[j];
+    	        }
+
+    	        if (leftSum == rightSum) {
+    	            return i;
+    	        }
+    	    }
+    	    return -1;
+    	    
+    }
+    public static void f9(String[] arr8, char letter) {
+        int sum_letter = 0;
+        for (int i = 0; i < arr8.length; i++) {
+            int size = arr8[i].length();
+            for (int index = 0; index < size; index++) {
+                char letter1 = arr8[i].charAt(index);
+                if (letter1 == letter) {
+                    sum_letter++;
+                }
+            }
+        }
+        System.out.println(sum_letter); 
+    }
+    public static int f10(int[] arr9, int num) {
+    	int sum=0;
+    	for (int i = 0; i < arr9.length; i++) {
+    		if (arr9[i]>num) {
+    			sum++;
+    		}
+    	}
+    	return sum;
+    }
+    public static void f11(int[] arr10) {
+    	int max1=0;
+    	int max2=0;
+    	int index1,index2 = 0;
+    	for (int i = 0; i < arr10.length; i++) {
+    		if (arr10[i]> max1) {
+    			index1 = i;
+    	    	max2=max1;
+    	   		max1=arr10[i];
+    		}
+    		else if (arr10[i]>max2) {
+    			index2 = i;
+    			max2 = arr10[i];
+    		}
+    	}
+    	System.out.println(index2);
+    }
+    public static void f12(int arr12[]) {
+        Random random = new Random();
+        int num = random.nextInt(101);
+        for (int j = 0; j < arr12.length; j++) {
+            System.out.print(arr12[j] + " ");
+        }
+        System.out.println(" ");
+        for (int i = 0; i < arr12.length; i++) {
+            if (arr12[i] != num) {
+                System.out.print(arr12[i] + " ");
+            }
+        }
+        System.out.println(" ");
+    }
+    public static void f13() {
+        String numbers = "";
+        int[] arr12 = new int[30];
+        Random r = new Random();
+
+        // מילוי המערך במספרים אקראיים בין 0 ל-10
+        for (int index = 0; index < arr12.length; index++) {
+            int x = r.nextInt(11);
+            arr12[index] = x;
+        }
+
+        // חיפוש המספרים הכפולים
+        for (int i = 0; i < arr12.length; i++) {
+            for (int j = i + 1; j < arr12.length; j++) {
+                if (arr12[i] == arr12[j]) {
+                    numbers += arr12[i] + " ";
+                    break; // נצא מהלולאה הפנימית אחרי שמצאנו זוג כפול
+                }
+            }
+        }
+
+        System.out.println("Duplicate numbers: " + numbers);
+    }
+    public static void f14() {
+        int[] arr13 = new int[10];
+        Random r = new Random();
+
+        // מילוי של arr13 עם מספרים אקראיים
+        for (int index = 0; index < arr13.length; index++) {
+            int x = r.nextInt(101);
+            arr13[index] = x;
+        }
+
+        // הדפסת arr13
+        System.out.println("מערך arr13:");
+        for (int i = 0; i < arr13.length; i++) {
+            System.out.print(arr13[i] + " ");
+        }
+
+        // יצירת arr14 כעותק של arr13 בסדר הפוך
+        int[] arr14 = new int[arr13.length];
+        for (int j = 0; j < arr13.length; j++) {
+            arr14[j] = arr13[arr13.length - 1-j];
+        }
+
+        // הדפסת arr14
+        System.out.println("\nמערך arr14 (arr13 בסדר הפוך):");
+        for (int z = 0; z < arr14.length; z++) {
+            System.out.print(arr14[z] + " ");
+        }
+    }
+    public static String f15(int[] arr15) {
+        int x = 0; // אתחול מונה
+        for (int index = 0; index < arr15.length; index++) {
+            if (arr15[index] == arr15[arr15.length - 1]) { // שימוש בסימן השווה ==
+                x++;
+            }
+            if (arr15[index] != arr15[arr15.length - 1]) { // שימוש בסימן השווה ==
+                x--;
+            }
+        }
+        if (x == 5) { // השוואה באמצעות ==
+            return "true";
+        } else {
+            return "false";
+        }
+    }
+    
+    public static void main(String[] args) {
+    	int[] arr = {3, 2, 3, 4, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,};
+        f1(arr, 9);
+        int[] arr1 = {100, 100, 100};
+        f2(arr1);
+        int[] arr2 = {100, 90, 80, 95};
+        f3(arr2);
+        int[] arr3 = {7, 9, 2, 8, 3, 9, 8, 10, 90, 87};
+        f4(arr3);
+        f5(50);
+        f6();
+        f7();
+        int[] arr7 = {4, -2, 3, 9, 8, -3};
+        f8(arr7);
+        String[] arr8 = {"aba", "sba", "ana"};
+        f9(arr8, 'a');
+        int arr9[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        f10(arr9, 5);
+        int[] arr10 = {67, 21, 23, 56, 77, 79, 81, 24, 78, 80};
+        f11(arr10);
+        int[] arr11 = {67, 21, 23, 56, 77, 79, 81, 24, 78, 80};
+        f12(arr11);
+        f13();
+        f14();
+        int[] arr15 = {67, 21, 23, 56, 77, 79, 81, 24, 78, 80};
+        f15(arr15);
+      }
+}
